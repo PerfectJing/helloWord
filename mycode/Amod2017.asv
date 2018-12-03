@@ -1,0 +1,32 @@
+function B=Amod2017(A,p,q,iter)
+C=imread(A);
+figure,imshow(C);
+C=double(C);
+[H,W]=size(C);
+B=zeros(H,W);
+% iter;p;q;
+for k=1:iter
+for i=0:H-1
+    for j=0:W-1
+        i1=mod(i+p*j,H);
+        j1=mod(q*i+(p*q+1)*j,W);
+        B(i1+1,j1+1)=C(i+1,j+1);
+    end
+end
+C=B;
+end
+B=uint8(B);figure,imshow(B)
+
+% D=imread('myencrice.bmp');
+for k=1:iter
+for i=0:H-1
+    for j=0:W-1
+        i1=mod(i+p*j,H);
+        j1=mod(q*i+(p*q+1)*j,W);
+        H(i+1,j+1)=D(i1+1,j1+1);
+    end
+end
+% A=B;
+D=H;
+end
+H=uint8(H);figure,imshow(H)
